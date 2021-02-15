@@ -1,2 +1,2 @@
 # Four-Dimensional-Maze
- Implements Kruskal's algorithm for minimum-spanning-tree generation on an unweighted graph 
+ JAVA IMPLEMENTATION. Procedurally generates four-dimensional mazes using either a randomized DFS or Kruskal's algorithm for MST generation. An iterative DFS solver verifies each maze via prioritezed traversal of 'branches' at intersections based on direction. 
