@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Stack;
@@ -202,5 +204,13 @@ public class DFS_Solver {
 		byte[] maze = solve(40);
 		long endTime = System.nanoTime();
 		System.out.println("Elapsed time: "+ (endTime-startTime)/1000000000.0 + " seconds.");
+		File outputfile = new File("maze.txt");
+		try{
+			FileOutputStream outputStream =  new FileOutputStream(outputfile);
+			outputStream.write(maze);
+			outputStream.close();
+		}catch(Exception ex){
+			System.out.println("idk");
+		}
 	}
 }

@@ -1,11 +1,13 @@
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.Collections;
 import java.util.Stack;
 
 public class KruskalSolver {
 	static int edgeCount = 0;
-	static boolean DEBUG = true;
+	static boolean DEBUG = false;
 	static boolean PRINTEDGES = false;
-	static boolean EDGES = true;
+	static boolean EDGES = false;
 	static int N_size;
 	static int dim3;
 	static int dim2;
@@ -205,7 +207,7 @@ public class KruskalSolver {
 		}
 		
 		public static void buildPath(SPC[][][][] maze){
-			String path = "";
+			//String path = "";
 			int t = 0 , z = 0, y = 0, x =0;
 			// -t +t -z +z -y +y -x +x
 			//  0  1  2  3  4  5  6  7
@@ -406,9 +408,18 @@ public class KruskalSolver {
 			checkEverySpace(verifyMaze);
 		}
 		
-		System.out.println("Edge total : "+edgeCount);
+		if(EDGES)System.out.println("Edge total : "+edgeCount);
 		e= System.nanoTime();
 		
 		System.out.println("Runtime: "+(e-s)/1000000000.0);
+		File outputfile = new File("maze.txt");
+		try{
+			FileOutputStream outputStream =  new FileOutputStream(outputfile);
+			outputStream.write(m);
+			outputStream.close();
+		}catch(Exception ex){
+			System.out.println("idk");
+		}
+		
 	}
 }
